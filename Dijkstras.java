@@ -24,7 +24,7 @@ public class Dijkstras {
 		//Optional:
 		//graph.printInput();
 		//printStats();
-		printOutput();		
+		//printOutput();		
 		
 	}
 	
@@ -63,17 +63,17 @@ public class Dijkstras {
 				int edgeWeight = -1;
 				
 				for(int j=0; j<edges.length; ++j) {	
+					//getting distance of the edge that connects v(source) to the specific neighbour
 					edgeWeight = edges[j].getWeight(v, neighbourList.get(i));
 					if(edgeWeight != -1) break;
 				}
 				//Current EdgeWeight calculation done
 				
-				
 				//decrease key function
 				if(v.getDistance() + edgeWeight < neighbourList.get(i).getDistance()) {		
 					neighbourList.get(i).setDistance(v.getDistance() + edgeWeight);
 					neighbourList.get(i).setPi(v);
-					//Adjusting the queue after changing the distance
+					//Adjusting the priority queue after changing the source distance
 					Vertex temp = PQueue.remove();
 					PQueue.add(temp);
 				}
@@ -121,7 +121,6 @@ class Graph {
 			if(i==0)
 				vertices[i] = new Vertex(i, true);
 			
-			
 			else
 				vertices[i] = new Vertex(i);
 			
@@ -141,13 +140,11 @@ class Graph {
 		for(int i=0; i<numberOfEdges; ++i)
 			infinity += edges[i].getWeight();
 
-			
 		//infinity+1
 		infinity++;
 		
 		//Setting neighbors---> 
 		for(int i=0; i<numberOfEdges; ++i) {
-		
 			Vertex from = edges[i].getConnectedFrom();
 			Vertex to = edges[i].getConnectedTo();
 			from.setneighbour(to);
@@ -157,7 +154,7 @@ class Graph {
 	}
 	
 	//Prints out the input
-	public void printInput() {	}
+	public void printInput() { }
 	
 	public int getNumberOfVertices() {
 		return numberOfVertices;
@@ -216,25 +213,25 @@ class Edge {
 		return this.connectionTo.getVertexID();
 	}
 	
+	//will return -1 if that edge does not connects vertex v and v1
+	//will return actual edge weight if that edge connects vertex v and v1
 	public int getWeight(Vertex v, Vertex v1) {
 		
 		if(isConnected(v, v1))
-			return this.getWeight();	
-			
+			return this.getWeight();		
 		
 		else
 			return -1;
 	
 	}
 	
+	//will return false if that edge does not connects vertex v1 and v2
+	//will return true if that edge connects vertex v1 and v2
 	private boolean isConnected(Vertex v1, Vertex v2) {
 		
-		if(this.getConnectedFromID() == v1.getVertexID() && this.getConnectedToID() == v2.getVertexID()) {
-			
+		if(this.getConnectedFromID() == v1.getVertexID() && this.getConnectedToID() == v2.getVertexID())
 			return true;
-		
-		}
-
+			
 		return false;
 	}
 }
