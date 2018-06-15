@@ -106,7 +106,7 @@ class Graph {
 		}
 		catch (FileNotFoundException e) {
 			
-			System.out.println("FILE NOT FOUND.\nPLEASE READ THE INSTRUCTIONS PROVIDED IN FILE \"Driver.java\" FROM LINE 20.");
+			//System.out.println("FILE NOT FOUND.\nPLEASE READ THE INSTRUCTIONS PROVIDED IN FILE \"Driver.java\" FROM LINE 20.");
 			System.exit(1);
 		}
 		
