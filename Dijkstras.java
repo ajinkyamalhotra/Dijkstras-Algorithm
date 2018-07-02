@@ -28,9 +28,10 @@ public class Dijkstras {
 		
 	}
 	
-	//printing Stats-->
+	//printing Stats to console-->
 	public static void printStats() { }
 	
+	//Writes the output to a .txt file
 	public static void printOutput() throws FileNotFoundException { }
 	
 	//This part of the code finds the shortest path from the given source
