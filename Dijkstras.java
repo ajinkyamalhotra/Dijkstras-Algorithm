@@ -154,7 +154,7 @@ class Graph {
 	
 	}
 	
-	//Prints out the input
+	//Prints the input to the console
 	public void printInput() { }
 	
 	public int getNumberOfVertices() {
@@ -293,7 +293,7 @@ class Vertex implements Comparable<Vertex>{
 		if(this.parent != null) 
 			return this.parent.getVertexID();
 		
-		//will return -1 only in case where we try to get source's parent
+		//will return -1 only in case we try to get source's parent
 		return -1;
 	}
 	
